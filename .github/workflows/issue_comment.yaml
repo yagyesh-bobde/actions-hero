@@ -8,6 +8,12 @@ jobs:
   comment-with-action: 
     runs-on: ubuntu-latest
     steps: 
-      - name: "dump github context"
-        run : echo '${{ toJSON(github.event)  }}' |J jq
-        shell: bash
+      - name: "comment-on-issue-with-action"
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Horray 🎉! This workflow works.
+
+            [1]: https://github.com/peter-evans/create-or-update-comment
+          reactions: '+1'

@@ -8,7 +8,7 @@ jobs:
   comment-with-action: 
     runs-on: ubuntu-latest
     steps: 
-      - name: "comment-on-issue-with-action"
+      - name: Create comment
         uses: peter-evans/create-or-update-comment@v4
         with:
           issue-number: ${{ github.event.issue.number }}
